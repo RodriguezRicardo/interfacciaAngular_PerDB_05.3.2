@@ -1,3 +1,5 @@
 <button (click)= "load10Movies()">Carica 10 film</button>
-<hr>
-{{results | json}}
+<div *ngFor="let movie of results">
+  <hr>
+  {{movie | json}}
+</div>
