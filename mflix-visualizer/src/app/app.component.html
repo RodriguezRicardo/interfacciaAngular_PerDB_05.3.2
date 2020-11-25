@@ -1,11 +1,13 @@
-<button (click)= "load10Movies()">Carica 10 film</button>
-<div *ngFor="let movie of results">
-  <hr>
-  <h1>{{movie.title}}</h1>
-  <img [src]="photoURL(movie.poster)">
-  <p>{{movie.fullplot}}</p>
+<button class="btn btn-primary" (click)= "load10Movies()">Carica 10 film</button> <!--aggiunto stile bottone-->
 
+<div class="card-columns">
+  <div *ngFor="let movie of results" class="card">
+    <img class="img-img-top" [src]="photoURL(movie.poster)" alt="Movie poster">
+    <div class="card-body text-center">
+      <h4 class="card-title">{{movie.title}}</h4>
+      <p class="card-text">S{{movie.fullplot}}</p>
+    </div>
   <!--{{movie | json}}-->
   <!--[src] e' una direttiva con cui Angular puo' creare dinamicamente il percorso di un'immagine-->
+  </div>
 </div>
-
