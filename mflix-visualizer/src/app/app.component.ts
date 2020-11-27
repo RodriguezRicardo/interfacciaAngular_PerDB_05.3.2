@@ -21,9 +21,23 @@ export class AppComponent {
     this.obs = this.http.get('https://3000-f75d3745-4ca7-43a9-9241-05a37c7c300d.ws-eu01.gitpod.io/users');
     this.obs.subscribe(this.getData);
   }
+
+  loadMoviesHorror()
+  {
+    this.obs = this.http.get('https://3000-f75d3745-4ca7-43a9-9241-05a37c7c300d.ws-eu01.gitpod.io/users/horror');
+    this.obs.subscribe(this.getData);
+  }
+
+  loadMoviesThriller()
+  {
+    this.obs = this.http.get('https://3000-f75d3745-4ca7-43a9-9241-05a37c7c300d.ws-eu01.gitpod.io/users/thriller');
+    this.obs.subscribe(this.getData);
+  }
+
   getData = (data) => {
     this.results = data;
   }
+
 
   /*aggiunto metodo per sanificare il codice.
   L'oggetto sanitize, "sanifica url passato come parametro*/
@@ -37,5 +51,4 @@ export class AppComponent {
     }
     return this.sanitazer.bypassSecurityTrustUrl(urltoSanitize);
   }
-
 }

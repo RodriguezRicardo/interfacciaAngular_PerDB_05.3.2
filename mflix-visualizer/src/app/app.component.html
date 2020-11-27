@@ -1,16 +1,22 @@
-<button class="btn btn-primary" (click)= "load10Movies()">Carica 10 film</button> <!--aggiunto stile bottone-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <button class="btn btn-primary" (click)= "load10Movies()">Carica 10 film</button> <!--aggiunto stile bottone-->
+  <button class="btn btn-success" (click)="loadMoviesHorror()">Collezione film horror</button>
+  <button class="btn btn-success" (click)="loadMoviesThriller()">Collezione film action</button>
+</nav>
 
+
+<!--card con i film-->
 <div class="card-columns">
   <div *ngFor="let movie of results" class="card">
     <!--<img class="img-img-top" [src]="photoURL(movie.poster)" alt="Movie poster">-->
     <!--se ritorna false mostrera' alert-->
 
-    <div *ngIf="photoURL(movie.poster) == false"><div class="alert alert-warning" role="alert"><strong>Warning!</strong> This alert box could indicate a warning that might need attention.</div></div>
+    <div *ngIf="photoURL(movie.poster) == false"><div class="alert alert-warning" role="alert"><strong>Warning!</strong> Manca immagine del poster</div></div>
     <div *ngIf="photoURL(movie.poster) != false"><img class="img-img-top" [src]="photoURL(movie.poster)"></div>
 
     <div class="card-body text-center">
       <h4 class="card-title">{{movie.title}}</h4>
-      <p class="card-text">S{{movie.fullplot}}</p>
+      <p class="card-text">{{movie.fullplot}}</p>
     </div>
 
   <!--{{movie | json}}-->
