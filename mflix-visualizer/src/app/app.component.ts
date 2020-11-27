@@ -18,7 +18,7 @@ export class AppComponent {
   //metodo per richiedere al server la lista dei 10 film
   load10Movies()
   {
-    this.obs = this.http.get('https://3000-b9fecb66-73fa-4ece-9fa1-da944f356b37.ws-eu01.gitpod.io/users');
+    this.obs = this.http.get('https://3000-f75d3745-4ca7-43a9-9241-05a37c7c300d.ws-eu01.gitpod.io/users');
     this.obs.subscribe(this.getData);
   }
   getData = (data) => {
@@ -29,6 +29,13 @@ export class AppComponent {
   L'oggetto sanitize, "sanifica url passato come parametro*/
   photoURL(urltoSanitize) {
     console.log(urltoSanitize);
+
+    //aggiunto un if per poter poi vedere un alert nel html
+    if(urltoSanitize == undefined)
+    {
+      return false;
+    }
     return this.sanitazer.bypassSecurityTrustUrl(urltoSanitize);
   }
+
 }

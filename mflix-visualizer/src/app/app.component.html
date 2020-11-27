@@ -2,11 +2,17 @@
 
 <div class="card-columns">
   <div *ngFor="let movie of results" class="card">
-    <img class="img-img-top" [src]="photoURL(movie.poster)" alt="Movie poster">
+    <!--<img class="img-img-top" [src]="photoURL(movie.poster)" alt="Movie poster">-->
+    <!--se ritorna false mostrera' alert-->
+
+    <div *ngIf="photoURL(movie.poster) == false"><div class="alert alert-warning" role="alert"><strong>Warning!</strong> This alert box could indicate a warning that might need attention.</div></div>
+    <div *ngIf="photoURL(movie.poster) != false"><img class="img-img-top" [src]="photoURL(movie.poster)"></div>
+
     <div class="card-body text-center">
       <h4 class="card-title">{{movie.title}}</h4>
       <p class="card-text">S{{movie.fullplot}}</p>
     </div>
+
   <!--{{movie | json}}-->
   <!--[src] e' una direttiva con cui Angular puo' creare dinamicamente il percorso di un'immagine-->
   </div>
